@@ -1,0 +1,28 @@
+# compiled binaries
+demo
+tests
+app
+*.exe
+
+# object files and libraries
+*.o
+*.obj
+*.a
+*.so
+*.dll
+
+# debug symbols
+*.pdb
+*.ilk
+*.dSYM/
+
+# editor / IDE state (machine-specific paths live in here)
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS clutter
+.DS_Store
+Thumbs.db
+desktop.ini
