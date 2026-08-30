@@ -55,14 +55,6 @@ make run-app    # build and run the REPL
 make clean      # remove the binaries
 ```
 
-Compiles with zero warnings under `-Wall -Wextra -pedantic`.
-
-```
-$ make run
-74 / 74 checks passed
-ALL TESTS PASSED
-```
-
 ## Layout
 
 ```
