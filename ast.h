@@ -8,13 +8,14 @@
 #ifndef AST_H
 #define AST_H
 
-
+//Abstract struct Node
 struct Node {
     virtual ~Node() = default;
     virtual std::string to_string() const = 0;
     virtual double eval() const = 0;
 };
 
+//Child struct NumberNode
 struct NumberNode : Node 
 {
     double number_;
@@ -25,6 +26,7 @@ struct NumberNode : Node
     double eval() const override;
 }; 
 
+//Child struct IdentifierNode
 struct IdentifierNode : Node 
 {
     std::string str_ = "";
@@ -36,6 +38,7 @@ struct IdentifierNode : Node
     double eval() const override;
 }; 
 
+//Child struct BinaryNode
 struct BinaryNode : Node
 {
     TokenKind kind_;
@@ -54,7 +57,7 @@ struct BinaryNode : Node
 
 
 
-
+//Child struct UnaryNode
 struct UnaryNode : Node
 {
     TokenKind kind_;

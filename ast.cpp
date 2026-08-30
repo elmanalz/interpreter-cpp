@@ -3,6 +3,7 @@
 #include<cmath>
 
 
+//Returns the string equivalent of the Unary operators
 std::string UnaryNode::symbol() const
 {
     switch (kind_)
@@ -17,12 +18,15 @@ std::string UnaryNode::symbol() const
     throw std::invalid_argument("Evaluation Error: Unsupported Operator.");
 }
 
+//Returns the string version of the Unary operation
 std::string UnaryNode::to_string() const
 {
     const std::string sym = symbol();
     return '(' + (sym) +  down_->to_string()+ ')';
 }
 
+
+//Evaluates the result of the Unary operation
 double UnaryNode::eval() const
 {
     switch (kind_)
@@ -37,7 +41,7 @@ double UnaryNode::eval() const
     throw std::invalid_argument("Evaluation Error: Unsupported Operator.");
 }
 
-
+//Returns the string version of the identifier
 std::string IdentifierNode::to_string() const
 {
     if (str_ != "") {
@@ -46,12 +50,13 @@ std::string IdentifierNode::to_string() const
     throw std::runtime_error("Parser Error: Identifier not initialized.");
 }
 
+//Currently no evaluation criteria for Identifiers
 double IdentifierNode::eval() const
 {
     throw std::invalid_argument("Unknown identifier 'x'.");
 }
 
-
+//Returns the string version of the Number stored
 std::string NumberNode::to_string() const
 {
     char buffer[64];
@@ -63,13 +68,14 @@ std::string NumberNode::to_string() const
     throw std::runtime_error("Parser Error: Number too long to format.");
 }
 
+//Returns the value of the number
 double NumberNode::eval() const
 {
     return number_;
 }
 
 
-
+//Returns the string equivalent of the Binary operators
 std::string BinaryNode::symbol() const 
 {
     switch (kind_)
@@ -92,12 +98,14 @@ std::string BinaryNode::symbol() const
     throw std::invalid_argument("Evaluation Error: Unsupported Operator.");
 }
 
+//Returns the string equivalent of the Binary operations
 std::string BinaryNode::to_string() const
 {
     const std::string sym = symbol();
     return '(' + left_->to_string() + ' ' + (sym) + ' ' + right_->to_string()+ ')';
 }
 
+//Evaluates the binary operation
 double BinaryNode::eval() const
 {
     switch (kind_)

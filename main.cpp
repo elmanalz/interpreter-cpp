@@ -2,17 +2,19 @@
 #include"parser.h"
 #include<iostream>
 
+
+//REPL: Read, Evaluate, Print, Loop
 int main()
 {
     std::string str;
-    while(std::getline(std::cin, str))
+    while(std::getline(std::cin, str))      //Loop, Read
     {
         std::unique_ptr<Node> root = nullptr;
         try
         {
             std::vector<Token> t = calc::lex(str);
             Parser p(t);
-            root = p.parse();
+            root = p.parse();               //Evaluate
         }
         catch(const std::exception& e)
         {
@@ -21,7 +23,7 @@ int main()
         }
         if(root != nullptr)
         {
-            try
+            try                 //Print
             {
                 std::cout<<root->to_string()<<'\n';
                 std::cout<<root->eval()<<'\n'<<'\n';
